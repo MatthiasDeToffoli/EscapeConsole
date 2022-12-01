@@ -17,7 +17,7 @@ Game playing only with text in a console where you will have to escape from a ma
 **IV** *- [Project](#project)*
 * **A** *- [Namespaces](#namespaces)*
 * **B** *- [Coding rules](#coding-rules)*
-	* *[Include](#import)*
+	* *[Include](#include)*
 	* *[Namespaces](#namespaces-1)*
 	* *[Filters](#filters)*
 	* *[Structure of a class](#structure-of-a-class)*
@@ -26,7 +26,7 @@ Game playing only with text in a console where you will have to escape from a ma
 	* *[Regions](#regions)*
 	* *[Methods](#methods)*
 	* *[Comments](#comments)*
-	* *[Strings](#strings)*
+	* *[Variables](#variables)*
 	* *[Values](#values)*
 	* *[Condition](#condition)*
 	* *[Loops](#loops)*
@@ -70,7 +70,7 @@ C++
 ## Project
 
 ### Namespaces
-![Packages diagram](./Images/Packages.png "Packages")
+![Namespaces diagram](./Images/Namespaces.png "Namespaces")
 
 ### Coding rules
 The main language of the project is English, so all things have to be write in English (comments, names, classes, etc...)
