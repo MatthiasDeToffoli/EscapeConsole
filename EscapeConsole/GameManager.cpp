@@ -12,6 +12,11 @@ namespace Fr
 		namespace EscapeConsole
 		{
 			/// <summary>
+			/// Constant for test if the user need to see the help
+			/// </summary>
+			const char* GameManager::HELP = "help";
+
+			/// <summary>
 			/// Default constructor
 			/// </summary>
 			GameManager::GameManager()
@@ -25,7 +30,8 @@ namespace Fr
 			/// <returns><c>true</c> if the game continue, <c>false<c> if the player want to quit the game</returns>
 			bool GameManager::GameLoop() 
 			{
-				std::cout << "For help type help in the console any time\n\n";
+				if(!mAI.waitingAnswer)
+					std::cout << mAI.GetNextDialog();
 				
 				std::cin >> mPlayerText;
 				
@@ -58,6 +64,11 @@ namespace Fr
 					return false;
 				}
 
+				if (mAI.waitingAnswer)
+				{
+					mAI.TestPlayerAnswer(mPlayerText);
+				}
+
 				return true;
 			}
 
@@ -66,7 +77,8 @@ namespace Fr
 			/// </summary>
 			GameManager::~GameManager()
 			{
-				
+				delete &mAI;
+				delete mPlayerText;
 			}
 		}
 	}

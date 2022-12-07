@@ -1,10 +1,9 @@
 #pragma once
 
+#include "AI.h"
+#include "GameState.cpp"
 #include <stdio.h>
 #include <stdlib.h>
-#include "GameState.cpp"
-
-using Fr::MatthiasDeToffoli::EscapeConsole::Enums::GameState;
 
 namespace Fr 
 {
@@ -34,11 +33,6 @@ namespace Fr
 					const char *LOAD = "load";
 
 					/// <summary>
-					/// Constant for test if the user need to see the help
-					/// </summary>
-					const char *HELP = "help";
-
-					/// <summary>
 					/// Constant for test if the user want to quit the app
 					/// </summary>
 					const char *QUIT = "quit";
@@ -53,7 +47,16 @@ namespace Fr
 					/// </summary>
 					char *mPlayerText;
 
+					/// <summary>
+					/// AI of the game
+					/// </summary>
+					AI mAI;
 				public:
+					/// <summary>
+					/// Constant for test if the user need to see the help
+					/// </summary>
+				    static const char* HELP;
+
 					/// <summary>
 					/// Default constructor
 					/// </summary>

@@ -4,7 +4,6 @@
 #include "GameManager.h"
 
 using Fr::MatthiasDeToffoli::EscapeConsole::GameManager;
-using Fr::MatthiasDeToffoli::EscapeConsole::Enums::GameState;
 
 
 
