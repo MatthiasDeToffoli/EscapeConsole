@@ -14,7 +14,12 @@ namespace Fr
 			/// <summary>
 			/// Constant for test if the user need to see the help
 			/// </summary>
-			const char* GameManager::HELP = "help";
+			const string GameManager::HELP = "help";
+
+			/// <summary>
+			/// The player name
+			/// </summary>
+			string GameManager::PLAYER_NAME = "";
 
 			/// <summary>
 			/// Default constructor
@@ -36,37 +41,41 @@ namespace Fr
 				std::cin >> mPlayerText;
 				
 				std::cout << "\n";
-
 				//use low chars
-				for (int i = 0, l = (int)std::strlen(mPlayerText); i < l; i++)
+				for (int i = 0, l = (int)mPlayerText.length(); i < l; i++)
 				{
 					mPlayerText[i] = std::tolower(mPlayerText[i]);
 				}
-				
-				if (strcmp(mPlayerText, NEW) == 0)
+
+				if (mPlayerText.compare(NEW) == 0)
 				{
 					//Restart game
 				}
-				else if (strcmp(mPlayerText, SAVE) == 0)
+				else if (mPlayerText.compare(SAVE) == 0)
 				{
 					//Save game
 				}
-				else if (strcmp(mPlayerText, LOAD) == 0)
+				else if (mPlayerText.compare(LOAD) == 0)
 				{
 					//Load game
 				}
-				else if (strcmp(mPlayerText, HELP) == 0)
+				else if (mPlayerText.compare(HELP) == 0)
 				{
 					std::cout << HELP_CONTENT;
 				}
-				else if (strcmp(mPlayerText, QUIT) == 0)
+				else if (mPlayerText.compare(QUIT) == 0)
 				{
 					return false;
 				}
 
 				if (mAI.waitingAnswer)
 				{
-					mAI.TestPlayerAnswer(mPlayerText);
+					string lTestAnswer = mAI.TestPlayerAnswer(mPlayerText);
+
+					if (!lTestAnswer.empty()) 
+					{
+						std::cout << lTestAnswer;
+					}
 				}
 
 				return true;
@@ -78,7 +87,7 @@ namespace Fr
 			GameManager::~GameManager()
 			{
 				delete &mAI;
-				delete mPlayerText;
+				delete &mPlayerText;
 			}
 		}
 	}

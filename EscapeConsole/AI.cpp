@@ -1,6 +1,8 @@
 #include "AI.h"
+#include "Constants.h"
 #include "GameManager.h"
 #include <iostream>
+
 
 namespace Fr
 {
@@ -20,18 +22,24 @@ namespace Fr
 			/// <summary>
 			/// Get the next dialiog of AI
 			/// </summary>
-			/// <returns>the next dialog</returns>
-			const char* AI::GetNextDialog() 
+			/// <returns></returns>
+			const string AI::GetNextDialog() 
 			{
-				const char* lNextDial = "";
+				string lNextDial = "";
 
-				int lDialogsSize = std::size(DIALOGS);
+				int lDialogsSize = (int)size(DIALOGS);
 
 				waitingAnswer = mDialogIndex == 0 || mDialogIndex == 2;
 
 				if (mDialogIndex < lDialogsSize) 
-				{
-					lNextDial = DIALOGS[mDialogIndex++];
+				{ 
+					lNextDial = DIALOGS[mDialogIndex];
+					mDialogIndex++;
+					int lIndexOfReplace = (int)lNextDial.find(Fr::MatthiasDeToffoli::EscapeConsole::Utils::Constants::String::REPLACE_PLAYER_NAME);
+					if (lIndexOfReplace > 0 && !GameManager::PLAYER_NAME.empty())
+					{
+						lNextDial.replace(lIndexOfReplace, Fr::MatthiasDeToffoli::EscapeConsole::Utils::Constants::String::REPLACE_PLAYER_NAME.size(), GameManager::PLAYER_NAME);
+					}
 				}
 				return lNextDial;
 			}
@@ -41,21 +49,25 @@ namespace Fr
 			/// </summary>
 			/// <param name="pPlayerAnswer">the player answer</param>
 			/// <returns>the error dialog corresponding if there an error or the next dialog</returns>
-			const char* AI::TestPlayerAnswer(char* pPlayerAnswer) 
+			const string AI::TestPlayerAnswer(string pPlayerAnswer) 
 			{
-				switch (mDialogIndex)
+				switch (mDialogIndex - 1)
 				{
 					case 0:
-						if (pPlayerAnswer == NULL || pPlayerAnswer[0] == '\0')
+						if (pPlayerAnswer.empty())
 						{
 							return ERROR_DIALOGS[0];
 						}
+
+						pPlayerAnswer[0] = std::toupper(pPlayerAnswer[0]);
+						GameManager::PLAYER_NAME = pPlayerAnswer;
 						break;
 					case 2:
-						if (pPlayerAnswer == NULL || strcmp(pPlayerAnswer, GameManager::HELP))
+						if (pPlayerAnswer.empty() || pPlayerAnswer.compare(GameManager::HELP) != 0)
 						{
 							return ERROR_DIALOGS[1];
 						}
+						break;
 					default:
 						return "";
 				}

@@ -4,6 +4,9 @@
 #include "GameState.cpp"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
+
+using namespace std;
 
 namespace Fr 
 {
@@ -20,32 +23,32 @@ namespace Fr
 					/// <summary>
 					/// Constant for test if the user need to see the help
 					/// </summary>
-					const char *NEW = "new";
+					const string NEW = "new";
 
 					/// <summary>
 					/// Constant for test if the user need to see the help
 					/// </summary>
-					const char *SAVE = "save";
+					const string SAVE = "save";
 
 					/// <summary>
 					/// Constant for test if the user need to see the help
 					/// </summary>
-					const char *LOAD = "load";
+					const string LOAD = "load";
 
 					/// <summary>
 					/// Constant for test if the user want to quit the app
 					/// </summary>
-					const char *QUIT = "quit";
+					const string QUIT = "quit";
 
 					/// <summary>
 					/// Content describe all key words possible in the app
 					/// </summary>
-					const char *HELP_CONTENT = "-> Help open the help screen\n-> Left chose left path if possible\n-> Right chose the right path if possible\n-> Forward chose to go forward if it's possible\n-> Back chose to go back if it's possible\n-> Left chose left path if possible\n-> New create a new game\n-> Save save your current game\n-> Load load your previous game\n-> Quit close the consol\n\n";
+					const string HELP_CONTENT = "-> Help open the help screen\n-> Left chose left path if possible\n-> Right chose the right path if possible\n-> Forward chose to go forward if it's possible\n-> Back chose to go back if it's possible\n-> Left chose left path if possible\n-> New create a new game\n-> Save save your current game\n-> Load load your previous game\n-> Quit close the consol\n\n";
 
 					/// <summary>
 					/// Text of the player
 					/// </summary>
-					char *mPlayerText;
+					string mPlayerText;
 
 					/// <summary>
 					/// AI of the game
@@ -55,7 +58,12 @@ namespace Fr
 					/// <summary>
 					/// Constant for test if the user need to see the help
 					/// </summary>
-				    static const char* HELP;
+				    static const string HELP;
+
+					/// <summary>
+					/// The player name
+					/// </summary>
+					static string PLAYER_NAME;
 
 					/// <summary>
 					/// Default constructor
