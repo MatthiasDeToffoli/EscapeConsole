@@ -40,14 +40,14 @@ namespace Fr
 
 				public:
 					/// <summary>
-					/// Default constructor
-					/// </summary>
-					AI();
-
-					/// <summary>
 					/// If AI waiting for an answer or not
 					/// </summary>
 					bool waitingAnswer;
+
+					/// <summary>
+					/// Default constructor
+					/// </summary>
+					AI();
 
 					/// <summary>
 					/// Get the next dialiog of AI
