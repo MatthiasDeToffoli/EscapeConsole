@@ -17,6 +17,7 @@ namespace Fr
 			{
 				mDialogIndex = 0;
 				waitingAnswer = false;
+				mWaitingDirectionChose = false;
 			}
 
 			/// <summary>
@@ -31,7 +32,17 @@ namespace Fr
 
 				waitingAnswer = mDialogIndex == 0 || mDialogIndex == 2;
 
-				if (mDialogIndex < lDialogsSize) 
+				if (mDialogIndex == 3)
+				{
+					waitingAnswer = true;
+					mWaitingDirectionChose = true;
+				}
+
+				if (mWaitingDirectionChose)
+				{
+					//todo
+				}
+				else if (mDialogIndex < lDialogsSize) 
 				{ 
 					lNextDial = DIALOGS[mDialogIndex];
 					mDialogIndex++;
@@ -41,6 +52,7 @@ namespace Fr
 						lNextDial.replace(lIndexOfReplace, Fr::MatthiasDeToffoli::EscapeConsole::Utils::Constants::String::REPLACE_PLAYER_NAME.size(), GameManager::PLAYER_NAME);
 					}
 				}
+
 				return lNextDial;
 			}
 

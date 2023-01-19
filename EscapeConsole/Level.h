@@ -18,10 +18,15 @@ namespace Fr
 					/// Map of the game, player can move on true squares and can't on false squares.
 					/// </summary>
 					/// <remarks>
-					///	                            y
-					///  |---------------------------------------------------------- 
-					/// x|
-					///  |
+					/// 
+					///					          LEFT y - n         y         RIGHT y + n
+					///					|---------------------------------------------------------- 
+					///	  TOP x - n		|
+					///					|
+					///		   x		|
+					///	 BOTTOM x + n	|
+					///					|
+					/// 
 					/// </remarks>
 					const bool mMap[10][10] = {
 						{false,false,true ,true ,true ,false,false,false,true ,true },
@@ -87,7 +92,15 @@ namespace Fr
 					/// <returns><c>true</c> if we can move on the direction, <c>false</c> instead</returns>
 					bool CanMove(Direction pDir);
 
-					///Default Destructor
+					/// <summary>
+					/// Move to a direction
+					/// </summary>
+					/// <param name="pDir"></param>
+					bool Move(Direction pDir);
+
+					/// <summary>
+					/// Default Destructor
+					/// </summary>
 					~Level();
 			};
 
