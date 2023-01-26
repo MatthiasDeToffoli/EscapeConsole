@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "Level.h"
 
 using namespace std;
 
@@ -28,12 +29,25 @@ namespace Fr
 					/// <summary>
 					/// All errors dialogs of AI
 					/// </summary>
-					const string ERROR_DIALOGS[3] =
+					const string ERROR_DIALOGS[4] =
 					{
 						"Write something please or I can't know.",
 						"No write help please\n\n",
-						"Sorry you can't move there",
+						"Write a direction please\n\n",
+						"Sorry you can't move there\n\n",
 					};
+
+					/// <summary>
+					/// string version of directions
+					/// </summary>
+					const string DIRECTIONS[4] =
+					{
+						"left",
+						"right",
+						"top",
+						"bottom"
+					};
+					
 					
 					/// <summary>
 					/// Dialog sentence for say which direction the player can move at
@@ -50,6 +64,10 @@ namespace Fr
 					/// </summary>
 					bool mWaitingDirectionChose;
 
+					/// <summary>
+					/// Current level
+					/// </summary>
+					Level mLevel;
 				public:
 					/// <summary>
 					/// If AI waiting for an answer or not
