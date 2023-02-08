@@ -43,7 +43,7 @@ namespace Fr
 					/// <summary>
 					/// Content describe all key words possible in the app
 					/// </summary>
-					const string HELP_CONTENT = "-> Help open the help screen\n-> Left chose left path if possible\n-> Right chose the right path if possible\n-> Forward chose to go forward if it's possible\n-> Back chose to go back if it's possible\n-> Left chose left path if possible\n-> New create a new game\n-> Save save your current game\n-> Load load your previous game\n-> Quit close the consol\n\n";
+					const string HELP_CONTENT = "-> Help open the help screen\n-> Left chose left path if possible\n-> Right chose the right path if possible\n-> Forward chose to go forward if it's possible\n-> Back chose to go back if it's possible\n-> Left chose left path if possible\n-> Quit close the consol\n\n";
 
 					/// <summary>
 					/// Text of the player

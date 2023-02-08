@@ -11,8 +11,8 @@ namespace Fr
 			/// </summary>
 			Level::Level()
 			{
-				playerPosX = startX;
-				playerPosY = startY;
+				mPlayerPosX = startX;
+				mPlayerPosY = startY;
 			}
 
 			/// <summary>
@@ -46,13 +46,13 @@ namespace Fr
 				switch (pDir)
 				{
 					case Direction::LEFT:
-						return CanMove(playerPosX, playerPosY - 1.);
+						return CanMove(mPlayerPosX, mPlayerPosY - 1.);
 					case Direction::RIGHT:
-						return CanMove(playerPosX, playerPosY + 1);
+						return CanMove(mPlayerPosX, mPlayerPosY + 1);
 					case Direction::BOTTOM:
-						return CanMove(playerPosX + 1, playerPosY);
+						return CanMove(mPlayerPosX + 1, mPlayerPosY);
 					case Direction::TOP:
-						return CanMove(playerPosX - 1, playerPosY);
+						return CanMove(mPlayerPosX - 1, mPlayerPosY);
 				}
 
 				return false;
@@ -69,16 +69,16 @@ namespace Fr
 					switch (pDir)
 					{
 					case Direction::LEFT:
-						playerPosY--;
+						mPlayerPosY--;
 						break;
 					case Direction::RIGHT:
-						playerPosY++;
+						mPlayerPosY++;
 						break;
 					case Direction::BOTTOM:
-						playerPosX++;
+						mPlayerPosX++;
 						break;
 					case Direction::TOP:
-						playerPosX--;
+						mPlayerPosX--;
 						break;
 					}
 					return true;
@@ -87,6 +87,14 @@ namespace Fr
 
 			}
 
+			/// <summary>
+			/// If the player is on exit or not
+			/// </summary>
+			/// <returns></returns>
+			bool Level::IsOnExit() 
+			{
+				return mPlayerPosX == mExitX && mPlayerPosY == mExitY;
+			}
 			/// <summary>
 			/// Default Destructor
 			/// </summary>

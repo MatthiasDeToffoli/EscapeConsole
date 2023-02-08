@@ -15,6 +15,26 @@ namespace Fr
 			{
 				private:
 					/// <summary>
+					/// x exit
+					/// </summary>
+					const int mExitX = 0;
+
+					/// <summary>
+					/// y exit
+					/// </summary>
+					const int mExitY = 9;
+
+					/// <summary>
+					/// position x of the player
+					/// </summary>
+					int mPlayerPosX;
+
+					/// <summary>
+					/// position y of the player
+					/// </summary>
+					int mPlayerPosY;
+
+					/// <summary>
 					/// Map of the game, player can move on true squares and can't on false squares.
 					/// </summary>
 					/// <remarks>
@@ -61,26 +81,6 @@ namespace Fr
 					const int startY = 0;
 
 					/// <summary>
-					/// x exit
-					/// </summary>
-					const int exitX = 0;
-
-					/// <summary>
-					/// y exit
-					/// </summary>
-					const int exitY = 9;
-
-					/// <summary>
-					/// position x of the player
-					/// </summary>
-					int playerPosX;
-
-					/// <summary>
-					/// position y of the player
-					/// </summary>
-					int playerPosY;
-
-					/// <summary>
 					/// Default constructor
 					/// </summary>
 					Level();
@@ -97,6 +97,12 @@ namespace Fr
 					/// </summary>
 					/// <param name="pDir"></param>
 					bool Move(Direction pDir);
+
+					/// <summary>
+					/// If the player is on exit or not
+					/// </summary>
+					/// <returns></returns>
+					bool IsOnExit();
 
 					/// <summary>
 					/// Default Destructor

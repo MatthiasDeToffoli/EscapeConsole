@@ -18,6 +18,7 @@ namespace Fr
 				mDialogIndex = 0;
 				waitingAnswer = false;
 				mWaitingDirectionChose = false;
+				isEnd = false;
 			}
 
 			/// <summary>
@@ -32,10 +33,11 @@ namespace Fr
 
 				waitingAnswer = mDialogIndex == 0 || mDialogIndex == 2;
 
-				if (mDialogIndex == 3)
+				if (mDialogIndex == 4)
 				{
-					waitingAnswer = true;
-					mWaitingDirectionChose = true;
+					isEnd = mLevel.IsOnExit();
+					waitingAnswer = isEnd == false;
+					mWaitingDirectionChose = waitingAnswer;
 				}
 
 				if (mWaitingDirectionChose)
@@ -56,12 +58,12 @@ namespace Fr
 						if (lHaveFirstMove)
 						{
 							lSubText.insert(0, " and ");
-							lHaveFirstMove = true;
+							lHaveSecondMove = true;
 						}
 						else
 						{
 							lSubText = ".\n\n";
-							lHaveSecondMove = true;
+							lHaveFirstMove = true;
 						}
 
 						lSubText.insert(0, DIRECTIONS[Direction::BOTTOM]);
@@ -178,7 +180,7 @@ namespace Fr
 						if (mLevel.CanMove(lDir))
 						{
 							mLevel.Move(lDir);
-							return "";
+							break;
 						}
 
 						return ERROR_DIALOGS[3];

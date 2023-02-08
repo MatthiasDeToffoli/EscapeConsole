@@ -1,8 +1,8 @@
 #include "GameManager.h"
 #include <iostream>
 #include <string.h>
-
-
+#include <stdlib.h>
+#include <Windows.h>
 using namespace std;
 
 namespace Fr
@@ -38,6 +38,12 @@ namespace Fr
 				if(!mAI.waitingAnswer)
 					std::cout << mAI.GetNextDialog();
 				
+				if (mAI.isEnd)
+				{
+					Sleep(5000);
+					exit(0);
+				}
+
 				std::cin >> mPlayerText;
 				
 				std::cout << "\n";

@@ -75,6 +75,11 @@ namespace Fr
 					bool waitingAnswer;
 
 					/// <summary>
+					/// True when the player is at the end of the game
+					/// </summary>
+					bool isEnd;
+
+					/// <summary>
 					/// Default constructor
 					/// </summary>
 					AI();
