@@ -49,6 +49,7 @@ Game playing only with text in a console where you will have to escape from a ma
 | VX.X | Date       | Title  						| Comments													| Author              |
 | ---- | ---------- | ------------------------------| ----------------------------------------------------------| ------------------- |
 | V0.0 | 12/01/2022 | Creation of the documentation	| Create the document and add the first parts				| Matthias de Toffoli |
+| V1.0 | 02/08/2023 | Update Namespaces				| Update the Namespaces Diagram								| Matthias de Toffoli |
 
 
 ## About it
